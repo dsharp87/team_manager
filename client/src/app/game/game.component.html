@@ -1,0 +1,28 @@
+<h1>GAME TABLE HERE</h1> 
+
+<!-- {{ players | json }} -->
+
+<table>
+    <thead>
+        <tr>
+            <td>Player Name</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let player of players">
+            <td>{{ player.name }}</td>
+            <td>
+                <button *ngIf = "gamenumber == 1" (click)="updatestatus('Playing', player._id)" [ngClass] = "{ green: player.game1status == 'Playing'}">Playing</button>
+                <button *ngIf = "gamenumber == 2" (click)="updatestatus('Playing', player._id)" [ngClass] = "{ green: player.game2status == 'Playing'}">Playing</button>
+                <button *ngIf = "gamenumber == 3" (click)="updatestatus('Playing', player._id)" [ngClass] = "{ green: player.game3status == 'Playing'}">Playing</button>
+                <button *ngIf = "gamenumber == 1" (click)="updatestatus('Not Playing', player._id)" [ngClass] = "{ red: player.game1status == 'Not Playing'}">Not Playing</button>
+                <button *ngIf = "gamenumber == 2" (click)="updatestatus('Not Playing', player._id)" [ngClass] = "{ red: player.game2status == 'Not Playing'}">Not Playing</button>
+                <button *ngIf = "gamenumber == 3" (click)="updatestatus('Not Playing', player._id)" [ngClass] = "{ red: player.game3status == 'Not Playing'}">Not Playing</button>
+                <button *ngIf = "gamenumber == 1" (click)="updatestatus('Undecided', player._id)" [ngClass] = "{ yellow: player.game1status == 'Undecided'}">Undecided</button>
+                <button *ngIf = "gamenumber == 2" (click)="updatestatus('Undecided', player._id)" [ngClass] = "{ yellow: player.game2status == 'Undecided'}">Undecided</button>
+                <button *ngIf = "gamenumber == 3" (click)="updatestatus('Undecided', player._id)" [ngClass] = "{ yellow: player.game3status == 'Undecided'}">Undecided</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
